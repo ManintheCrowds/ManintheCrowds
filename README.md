@@ -36,6 +36,6 @@ Portfolio case studies and audit artifacts: [media-ops-platform/docs/portfolio/]
 
 ## Socials
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/maninthecrowds/)
+Pending
 
 Open an issue on any pinned repo for collaboration or questions.
