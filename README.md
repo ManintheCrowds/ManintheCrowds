@@ -2,6 +2,12 @@
 
 I build automation pipelines, agent harnesses, and local-first systems where humans stay in the loop—inspectable context, explicit gates, and production-shaped backends (FastAPI, PostgreSQL, Docker, observability).
 
+## Problem → Solution → Impact
+
+- **Problem:** Agent workflows lose intent across sessions; untrusted content reaches LLMs; production ops lack inspectable, human-gated context.
+- **Solution:** Guard–Guide–Build stack — SCP (input safety), OpenHarness (handoffs + gates), OpenGrimoire (context graph), plus production platform (CaptionPipeline / Platform API).
+- **Impact:** CaptionPipeline: 256+ caption files, 330+ content hours, <1% errors across 9 production feeds; SCP: 16/16 promptfoo tier probes; OpenHarness: reusable harness pin-able by commit SHA.
+
 ## Stack
 
 [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
