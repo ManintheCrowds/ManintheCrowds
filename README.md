@@ -1,21 +1,58 @@
-# Python Backend Engineer | AI Systems | FastAPI | PostgreSQL | Agent Infrastructure
+# Backend & Systems Engineer | AI Systems | FastAPI | PostgreSQL | Agent Infrastructure
 
 I build automation pipelines, agent harnesses, and local-first systems where humans stay in the loop—inspectable context, explicit gates, and production-shaped backends (FastAPI, PostgreSQL, Docker, observability).
 
 ## Problem → Solution → Impact
 
 - **Problem:** Agent workflows lose intent across sessions; untrusted content reaches LLMs; production ops lack inspectable, human-gated context.
-- **Solution:** Guard–Guide–Build stack — SCP (input safety), OpenHarness (handoffs + gates), OpenGrimoire (context graph), plus production platform (CaptionPipeline / Platform API).
-- **Impact:** CaptionPipeline: 256+ caption files, 330+ content hours, <1% errors across 9 production feeds; SCP: 16/16 promptfoo tier probes; OpenHarness: reusable harness pin-able by commit SHA.
+- **Solution:** **Guard–Guide–Build** — SCP (input safety), OpenHarness (handoffs + gates), OpenGrimoire (context graph), plus production platform (CaptionPipeline / Platform API).
+- **Impact:** CaptionPipeline: **256+** caption files, **330+** content hours, **<1%** errors across **9** production feeds ([case study](https://github.com/ManintheCrowds/media-ops-platform/blob/main/docs/portfolio/README.md)); SCP: **16/16** promptfoo tier probes (OWASP LLM01/LLM06); OpenHarness: harness pin-able by commit SHA, autoresearch Tier B **5/5** on foam-pkm + frontend-a2ui skills (Jun 2026).
+
+## How the proof set fits together
+
+```mermaid
+flowchart LR
+  SCP[SCP Guard] --> OH[OpenHarness Guide]
+  OH --> OG[OpenGrimoire Build]
+  OH --> MOP[media-ops Platform]
+  WT[moltbook_watchtower] -.->|read-only observe| SCP
+  AF[Arc_Forge] -.->|vault compounding| OH
+```
+
+## Evaluate in ~10 minutes
+
+| Step | Repo | Command / link |
+|------|------|----------------|
+| 1 | [OpenHarness](https://github.com/ManintheCrowds/OpenHarness) | `python scripts/verify_script_index.py` (from repo root) |
+| 2 | [SCP](https://github.com/ManintheCrowds/SCP) | `npx promptfoo eval` (see README § Testing) |
+| 3 | [media-ops-platform](https://github.com/ManintheCrowds/media-ops-platform) | README Quick start — API + stack smoke |
+| 4 | [OpenGrimoire](https://github.com/ManintheCrowds/OpenGrimoire) | `npm install && npm run dev` or [CI workflow](https://github.com/ManintheCrowds/OpenGrimoire/actions) |
+| 5 | [Arc_Forge](https://github.com/ManintheCrowds/Arc_Forge) | `pytest` (workflow_ui suite) |
+
+## Case studies
+
+- **CaptionPipeline** — automated WhisperX → SCC captions across 9 feeds; Dec 2025 snapshot: 93.5%+ success, peaks 121 files/day → [portfolio kit](https://github.com/ManintheCrowds/media-ops-platform/tree/main/docs/portfolio/)
+- **SCP guardrail** — 16/16 promptfoo injection/reversal probes before LLM context → [SCP README § Impact](https://github.com/ManintheCrowds/SCP/blob/main/README.md)
+- **Agent harness eval** — Tier B 5/5 on foam-pkm and frontend-a2ui skills (2026-06) → OpenHarness + MiscRepos autoresearch harness
 
 ## Stack
 
 [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 [![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
 [![MCP](https://img.shields.io/badge/MCP-30333a?style=for-the-badge)](https://modelcontextprotocol.io/)
 [![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?style=for-the-badge&logo=prometheus&logoColor=white)](https://prometheus.io/)
+
+## CI (pinned proof set)
+
+[![OpenHarness CI](https://github.com/ManintheCrowds/OpenHarness/actions/workflows/ci.yml/badge.svg)](https://github.com/ManintheCrowds/OpenHarness/actions/workflows/ci.yml)
+[![SCP CI](https://github.com/ManintheCrowds/SCP/actions/workflows/ci.yml/badge.svg)](https://github.com/ManintheCrowds/SCP/actions/workflows/ci.yml)
+[![media-ops tests](https://github.com/ManintheCrowds/media-ops-platform/actions/workflows/tests.yml/badge.svg)](https://github.com/ManintheCrowds/media-ops-platform/actions/workflows/tests.yml)
+[![OpenGrimoire CI](https://github.com/ManintheCrowds/OpenGrimoire/actions/workflows/ci.yml/badge.svg)](https://github.com/ManintheCrowds/OpenGrimoire/actions/workflows/ci.yml)
+[![Arc_Forge tests](https://github.com/ManintheCrowds/Arc_Forge/actions/workflows/workflow_ui_tests.yml/badge.svg)](https://github.com/ManintheCrowds/Arc_Forge/actions/workflows/workflow_ui_tests.yml)
 
 ## Skills
 
@@ -29,16 +66,16 @@ I build automation pipelines, agent harnesses, and local-first systems where hum
 
 These six repos are the proof set—harness → watch → platform → context → compounding → safety.
 
-| Project | One line |
-|---------|----------|
-| [OpenHarness](https://github.com/ManintheCrowds/OpenHarness) | Portable harness: context engineering, handoff flow, intent alignment |
-| [moltbook_watchtower](https://github.com/ManintheCrowds/moltbook_watchtower) | Read-only observability for agent networks (leak / injection / behavior) |
-| [media-ops-platform](https://github.com/ManintheCrowds/media-ops-platform) | **CaptionPipeline** + **Platform API** — video captions and homelab integration |
-| [OpenGrimoire](https://github.com/ManintheCrowds/OpenGrimoire) | Local-first context graph and Sync Session alignment workspace |
-| [Arc_Forge](https://github.com/ManintheCrowds/Arc_Forge) | Harness mirror + LLM-Wiki compounding in Obsidian |
-| [SCP](https://github.com/ManintheCrowds/SCP) | Secure Contain Protect — MCP guardrail for LLM inputs (OWASP LLM01/LLM06) |
+| Project | One line | CI |
+|---------|----------|-----|
+| [OpenHarness](https://github.com/ManintheCrowds/OpenHarness) | Portable harness: context engineering, handoff flow, intent alignment | [![CI](https://github.com/ManintheCrowds/OpenHarness/actions/workflows/ci.yml/badge.svg)](https://github.com/ManintheCrowds/OpenHarness/actions/workflows/ci.yml) |
+| [moltbook_watchtower](https://github.com/ManintheCrowds/moltbook_watchtower) | Read-only observability for agent networks (leak / injection / behavior) | — |
+| [media-ops-platform](https://github.com/ManintheCrowds/media-ops-platform) | **CaptionPipeline** + **Platform API** — video captions and homelab integration | [![tests](https://github.com/ManintheCrowds/media-ops-platform/actions/workflows/tests.yml/badge.svg)](https://github.com/ManintheCrowds/media-ops-platform/actions/workflows/tests.yml) |
+| [OpenGrimoire](https://github.com/ManintheCrowds/OpenGrimoire) | Local-first context graph and Sync Session alignment workspace | [![CI](https://github.com/ManintheCrowds/OpenGrimoire/actions/workflows/ci.yml/badge.svg)](https://github.com/ManintheCrowds/OpenGrimoire/actions/workflows/ci.yml) |
+| [Arc_Forge](https://github.com/ManintheCrowds/Arc_Forge) | Harness mirror + LLM-Wiki compounding in Obsidian | [![tests](https://github.com/ManintheCrowds/Arc_Forge/actions/workflows/workflow_ui_tests.yml/badge.svg)](https://github.com/ManintheCrowds/Arc_Forge/actions/workflows/workflow_ui_tests.yml) |
+| [SCP](https://github.com/ManintheCrowds/SCP) | Secure Contain Protect — MCP guardrail for LLM inputs (OWASP LLM01/LLM06) | [![CI](https://github.com/ManintheCrowds/SCP/actions/workflows/ci.yml/badge.svg)](https://github.com/ManintheCrowds/SCP/actions/workflows/ci.yml) |
 
-Portfolio case studies and audit artifacts: [media-ops-platform/docs/portfolio/](https://github.com/ManintheCrowds/media-ops-platform/tree/main/docs/portfolio/). SCP red-team evals: `npx promptfoo eval` in the SCP repo.
+Portfolio case studies and audit artifacts: [media-ops-platform/docs/portfolio/](https://github.com/ManintheCrowds/media-ops-platform/tree/main/docs/portfolio/).
 
 ## Socials
 
