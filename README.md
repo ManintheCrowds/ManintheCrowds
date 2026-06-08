@@ -11,13 +11,27 @@ I build automation pipelines, agent harnesses, and local-first systems where hum
 ## How the proof set fits together
 
 ```mermaid
-flowchart LR
-  SCP[SCP Guard] --> OH[OpenHarness Guide]
-  OH --> OG[OpenGrimoire Build]
-  OH --> MOP[media-ops Platform]
-  WT[moltbook_watchtower] -.->|read-only observe| SCP
-  AF[Arc_Forge] -.->|vault compounding| OH
+flowchart TB
+  Intent[Human / Operator intent]
+  OH[OpenHarness Guide]
+  SCP[SCP Guard]
+  WT[moltbook_watchtower Watch]
+  AF[Arc_Forge Compounding]
+
+  subgraph build [Build]
+    MOP[media-ops-platform Platform]
+    OG[OpenGrimoire Context]
+  end
+
+  Intent --> OH
+  OH --> SCP
+  SCP -->|gates tools| MOP
+  SCP -->|gates tools| OG
+  WT -.->|observe| OH
+  AF -.->|compound| OG
 ```
+
+These six repos are the proof set—harness → watch → platform → context → compounding → safety.
 
 ## Evaluate in ~10 minutes
 
