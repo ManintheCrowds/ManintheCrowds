@@ -6,7 +6,9 @@ I build automation pipelines, agent harnesses, and local-first systems where hum
 
 - **Problem:** Agent workflows lose intent across sessions; untrusted content reaches LLMs; production ops lack inspectable, human-gated context.
 - **Solution:** **Guard–Guide–Build** — SCP (input safety), OpenHarness (handoffs + gates), OpenGrimoire (context graph), plus production platform (CaptionPipeline / Platform API).
-- **Impact:** CaptionPipeline: **256+** caption files, **330+** content hours, **<1%** errors across **9** production feeds ([case study](https://github.com/ManintheCrowds/media-ops-platform/blob/main/docs/portfolio/README.md)); SCP: **16/16** promptfoo tier probes (OWASP LLM01/LLM06); OpenHarness: harness pin-able by commit SHA, autoresearch Tier B **5/5** on foam-pkm + frontend-a2ui skills (Jun 2026).
+- **Impact:** CaptionPipeline (as-of **2025-12**): **256+** caption files, **330+** content hours, **<1%** errors across **9** production feeds ([case study](https://github.com/ManintheCrowds/media-ops-platform/blob/main/docs/portfolio/README.md)); SCP (as-of **2026-06**): **16/16** promptfoo tier probes (OWASP LLM01/LLM06); OpenHarness (as-of **2026-06**): harness pin-able by commit SHA, autoresearch Tier B **5/5** on foam-pkm + frontend-a2ui skills.
+
+*Portfolio metrics SSOT:* [metrics.json](https://github.com/ManintheCrowds/media-ops-platform/blob/main/docs/portfolio/metrics.json) · refreshed `generated_at` via `refresh_metrics.ps1`
 
 ## How the proof set fits together
 
@@ -46,9 +48,9 @@ These six repos are the proof set—harness → watch → platform → context �
 
 ## Case studies
 
-- **CaptionPipeline** — automated WhisperX → SCC captions across 9 feeds; Dec 2025 snapshot: 93.5%+ success, peaks 121 files/day → [portfolio kit](https://github.com/ManintheCrowds/media-ops-platform/tree/main/docs/portfolio/)
-- **SCP guardrail** — 16/16 promptfoo injection/reversal probes before LLM context → [SCP README § Impact](https://github.com/ManintheCrowds/SCP/blob/main/README.md)
-- **Agent harness eval** — Tier B 5/5 on foam-pkm and frontend-a2ui skills (2026-06) → OpenHarness + MiscRepos autoresearch harness
+- **CaptionPipeline** — automated WhisperX → SCC captions across 9 feeds; as-of **2025-12**: 93.5%+ success, peaks 121 files/day → [portfolio kit](https://github.com/ManintheCrowds/media-ops-platform/tree/main/docs/portfolio/)
+- **SCP guardrail** (as-of **2026-06**) — 16/16 promptfoo injection/reversal probes before LLM context → [SCP README § Impact](https://github.com/ManintheCrowds/SCP/blob/main/README.md)
+- **Agent harness eval** — as-of **2026-06**: Tier B 5/5 on foam-pkm and frontend-a2ui skills → OpenHarness + MiscRepos autoresearch harness
 
 ## Stack
 
@@ -87,8 +89,6 @@ These six repos are the proof set—harness → watch → platform → context �
 | [OpenGrimoire](https://github.com/ManintheCrowds/OpenGrimoire) | Local-first context graph and Sync Session alignment workspace | [![CI](https://github.com/ManintheCrowds/OpenGrimoire/actions/workflows/ci.yml/badge.svg)](https://github.com/ManintheCrowds/OpenGrimoire/actions/workflows/ci.yml) |
 | [Arc_Forge](https://github.com/ManintheCrowds/Arc_Forge) | Harness mirror + LLM-Wiki compounding in Obsidian | [![tests](https://github.com/ManintheCrowds/Arc_Forge/actions/workflows/workflow_ui_tests.yml/badge.svg)](https://github.com/ManintheCrowds/Arc_Forge/actions/workflows/workflow_ui_tests.yml) |
 | [SCP](https://github.com/ManintheCrowds/SCP) | Secure Contain Protect — MCP guardrail for LLM inputs (OWASP LLM01/LLM06) | [![CI](https://github.com/ManintheCrowds/SCP/actions/workflows/ci.yml/badge.svg)](https://github.com/ManintheCrowds/SCP/actions/workflows/ci.yml) |
-
-Portfolio case studies and audit artifacts: [media-ops-platform/docs/portfolio/](https://github.com/ManintheCrowds/media-ops-platform/tree/main/docs/portfolio/).
 
 ## Socials
 
