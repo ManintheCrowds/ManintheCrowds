@@ -27,7 +27,8 @@ flowchart TB
   OH --> SCP
   SCP -->|gates tools| MOP
   SCP -->|gates tools| OG
-  WT -.->|observe| OH
+  WT -.->|observe| SCP
+  AF -.->|mirror| OH
   AF -.->|compound| OG
 ```
 
@@ -77,8 +78,6 @@ These six repos are the proof set—harness → watch → platform → context �
 - FastAPI platform APIs, SSO/gateway patterns, homelab observability
 
 ## Pinned work
-
-These six repos are the proof set—harness → watch → platform → context → compounding → safety.
 
 | Project | One line | CI |
 |---------|----------|-----|
